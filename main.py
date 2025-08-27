@@ -328,10 +328,10 @@ class App(tk.Tk):
         top.grid_columnconfigure(10, weight=1)
 
         # Connection fields
-        self.host_var = tk.StringVar()
+        self.host_var = tk.StringVar(value='ptiq-ftp.itron-hosting.com')
         self.port_var = tk.IntVar(value=21)
-        self.user_var = tk.StringVar(value='anonymous')
-        self.pass_var = tk.StringVar(value='anonymous@')
+        self.user_var = tk.StringVar(value='eb_parquetecno')
+        self.pass_var = tk.StringVar(value='EverBlu888')
         self.ftps_var = tk.BooleanVar(value=False)
         self.pasv_var = tk.BooleanVar(value=True)
 
