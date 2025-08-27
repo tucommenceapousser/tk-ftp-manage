@@ -12,7 +12,7 @@ et visuelle.
 ### if need exec that:
 
 ```bash
-vncserver -kill :1                        ░▒▓ 95.173.222.10  ▓▒░─╯
+vncserver -kill :1
 rm -f ~/.vnc/*.pid
 rm -f ~/.vnc/*.lock
 vncserver :1 -geometry 1280x720 -depth 24
