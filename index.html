@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>tk-ftp-manage - by trhacknon</title>
+  <style>
+    body {
+      background-color: #000;
+      color: #00ff66;
+      font-family: "Courier New", monospace;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      text-align: center;
+      padding: 30px;
+      border-bottom: 2px solid #00ff66;
+    }
+    header h1 {
+      font-size: 2.5rem;
+      text-shadow: 0 0 10px #00ff66;
+    }
+    header p {
+      font-size: 1.2rem;
+      opacity: 0.9;
+    }
+    section {
+      padding: 20px 50px;
+      line-height: 1.6;
+    }
+    h2 {
+      color: #00ffaa;
+      border-left: 4px solid #00ff66;
+      padding-left: 10px;
+      margin-top: 30px;
+      text-shadow: 0 0 8px #00ffaa;
+    }
+    img {
+      display: block;
+      margin: 20px auto;
+      border: 2px solid #00ff66;
+      border-radius: 5px;
+      max-width: 700px;
+      box-shadow: 0 0 15px #00ff66;
+    }
+    code, pre {
+      background: rgba(0, 255, 100, 0.1);
+      color: #00ff66;
+      padding: 8px;
+      border-radius: 5px;
+      display: block;
+      margin: 10px 0;
+    }
+    footer {
+      text-align: center;
+      padding: 15px;
+      margin-top: 40px;
+      border-top: 2px solid #00ff66;
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+    /* Effet Matrix background */
+    canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: -1;
+    }
+  </style>
+</head>
+<body>
+
+<canvas id="matrix"></canvas>
+
+<header>
+  <h1>☠️ tk-ftp-manage ☠️</h1>
+  <p>FTP Tools with Tkinter GUI - by <b>trhacknon</b></p>
+</header>
+
+<section>
+  <h2>📱 Utilisation sous Termux / Android</h2>
+  <pre><code>vncserver -kill :1
+rm -f ~/.vnc/*.pid
+rm -f ~/.vnc/*.lock
+vncserver :1 -geometry 1280x720 -depth 24
+
+export DISPLAY=:1
+</code></pre>
+  <p>👉 Ouvre ensuite <b>localhost:1</b> dans ton VNC Viewer.</p>
+</section>
+
+<section>
+  <h2>📂 Scripts inclus</h2>
+
+  <h3>🔹 ftp-get-list.py</h3>
+  <ul>
+    <li>Récupère et affiche la <b>liste des fichiers</b> de plusieurs serveurs FTP.</li>
+    <li>Tu peux fournir une <b>liste de serveurs</b> et l’outil tentera de s’y connecter automatiquement.</li>
+  </ul>
+  <img src="https://c.top4top.io/p_3526t9rvw1.jpeg" alt="ftp-get-list screenshot">
+
+  <h3>🔹 main.py</h3>
+  <ul>
+    <li>Connexion à un <b>serveur FTP spécifique</b>.</li>
+    <li>Affiche l’arborescence des fichiers et dossiers.</li>
+    <li>Permet de <b>télécharger des fichiers</b> depuis un chemin FTP donné.</li>
+  </ul>
+  <img src="https://b.top4top.io/p_3526s21s50.jpeg" alt="ftp-main screenshot">
+</section>
+
+<section>
+  <h2>💻 Dépendances</h2>
+  <ul>
+    <li>Python 3.x</li>
+    <li>Tkinter (inclus par défaut)</li>
+    <li>ftplib (inclus par défaut)</li>
+  </ul>
+</section>
+
+<section>
+  <h2>▶️ Utilisation</h2>
+  <ul>
+    <li><code>python ftp-get-list.py</code> → récupérer la liste des fichiers depuis plusieurs serveurs FTP.</li>
+    <li><code>python main.py</code> → se connecter à un serveur FTP et télécharger des fichiers.</li>
+  </ul>
+</section>
+
+<section>
+  <h2>⚠️ Notes</h2>
+  <p>Ces scripts sont destinés à la <b>démonstration / test</b> uniquement.<br>
+  Assurez-vous d’avoir les <b>droits nécessaires</b> avant de parcourir ou télécharger des fichiers sur un serveur FTP.</p>
+</section>
+
+<footer>
+  <p>☠️ trhacknon - 2025 ☠️</p>
+</footer>
+
+<script>
+  // Matrix background
+  const canvas = document.getElementById('matrix');
+  const ctx = canvas.getContext('2d');
+  canvas.height = window.innerHeight;
+  canvas.width = window.innerWidth;
+  const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789$#@!%&*/\\";
+  const fontSize = 14;
+  const columns = canvas.width / fontSize;
+  const drops = Array(Math.floor(columns)).fill(1);
+
+  function draw() {
+    ctx.fillStyle = "rgba(0,0,0,0.1)";
+    ctx.fillRect(0,0,canvas.width,canvas.height);
+    ctx.fillStyle = "#00ff66";
+    ctx.font = fontSize + "px monospace";
+    for(let i=0; i<drops.length; i++) {
+      const text = letters.charAt(Math.floor(Math.random()*letters.length));
+      ctx.fillText(text, i*fontSize, drops[i]*fontSize);
+      if(drops[i]*fontSize > canvas.height && Math.random() > 0.975) drops[i]=0;
+      drops[i]++;
+    }
+  }
+  setInterval(draw, 35);
+
+  window.addEventListener('resize', () => {
+    canvas.height = window.innerHeight;
+    canvas.width = window.innerWidth;
+  });
+</script>
+
+</body>
+</html>
