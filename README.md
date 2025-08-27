@@ -18,7 +18,7 @@ et visuelle.
   tentera de se connecter et de récupérer l’arborescence.
 
 📷 Capture d’écran :
-https://c.top4top.io/p_3526t9rvw1.jpeg
+![https://c.top4top.io/p_3526t9rvw1.jpeg](https://c.top4top.io/p_3526t9rvw1.jpeg)
 
 -----------------------------------------------------
 2. main.py  
@@ -30,7 +30,7 @@ https://c.top4top.io/p_3526t9rvw1.jpeg
   depuis un chemin web/FTP donné.  
 
 📷 Capture d’écran :
-https://b.top4top.io/p_3526s21s50.jpeg
+![https://b.top4top.io/p_3526s21s50.jpeg](https://b.top4top.io/p_3526s21s50.jpeg)
 
 -----------------------------------------------------
 💻 Dépendances :
