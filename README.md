@@ -8,6 +8,23 @@ Ce projet contient deux scripts Python utilisant Tkinter
 pour interagir avec des serveurs FTP de manière simple 
 et visuelle.
 
+## for termux...
+### if need exec that:
+
+```bash
+vncserver -kill :1                        ░▒▓ 95.173.222.10  ▓▒░─╯
+rm -f ~/.vnc/*.pid
+rm -f ~/.vnc/*.lock
+vncserver :1 -geometry 1280x720 -depth 24
+```
+
+```bash
+export DISPLAY=:1
+```
+
+**and open localhost:1 in a vncviewer**
+
+
 -----------------------------------------------------
 1. ftp-get-list.py  
 -----------------------------------------------------
